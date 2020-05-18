@@ -1,4 +1,4 @@
-# Chronimal's collection of C++17 utility code
+# C++17 utility code
 A collection of newly refactored utility code I have written for and used in many personal projects over the years.
 
 ## Utilities
