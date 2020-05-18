@@ -28,6 +28,7 @@
 // clang-format on
 
 #include <iterator>
+#include <utility>
 
 RB_BEGIN_NAMESPACE
 
