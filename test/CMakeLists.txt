@@ -1,11 +1,10 @@
 #########################################################################
-# Test harnesses for ring buffer
+# Top level CMakeList including all test harnesses
 #########################################################################
 
 cmake_minimum_required(VERSION 3.9.4)
 
-add_executable(catch_ring_buffer "catch_ring_buffer.cpp")
+project ("test")
 
-if ((MSVC) AND (MSVC_VERSION GREATER_EQUAL 1914))
-    target_compile_options(catch_ring_buffer PRIVATE "/Zc:__cplusplus")
-endif()
+include_directories(../include catch2)
+add_subdirectory ("ring_buffer")
