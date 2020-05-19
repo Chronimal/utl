@@ -10,10 +10,6 @@
 #ifndef RB_RING_BUFFER_HPP_INCLUDED
 #define RB_RING_BUFFER_HPP_INCLUDED
 
-#if __cplusplus < 201703L
-#error "C++17 or higher required"
-#endif // __cplusplus
-
 // Configure namespace preference for RingBuffer.
 // By default namespace utl is used.
 #define RB_NAMESPACE_NAME utl
@@ -273,7 +269,7 @@ class RingBuffer
     template<typename... Args>
     decltype(auto) emplace(Args&&... args)
     {
-        // NOTE: Replace with std::construct_at() when moving to C++20
+        // NOTE: Replace with std::construct_at() once it it available for all supported compilers
         auto element = new (storageAt(write_)) T(std::forward<Args>(args)...);
         if (full())
         {

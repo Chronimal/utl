@@ -21,8 +21,20 @@ BinPackArguments: true
 # This applies to () [] <>
 AlignAfterOpenBracket: AlwaysBreak
 
-# Always break before braces
-BreakBeforeBraces: Allman
+BraceWrapping:
+  AfterClass:      true
+  AfterControlStatement: true
+  AfterEnum:       true
+  AfterFunction:   true
+  AfterNamespace:  true
+  AfterObjCDeclaration: false
+  AfterStruct:     true
+  AfterUnion:      true
+  BeforeCatch:     true
+  BeforeElse:      true
+  IndentBraces:    false
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: Custom
 
 # Template delcaration is on it's own line
 AlwaysBreakTemplateDeclarations: true
