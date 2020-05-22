@@ -46,7 +46,7 @@ TEST_CASE("utl.scope_guard. SCOPE_FAIL")
     auto doThrow = [&]()
     {
         SCOPE_FAIL{++counter;};
-        throw std::exception("FAIL");
+        throw std::exception{};
     };
     // clang-format on
 
