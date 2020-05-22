@@ -10,3 +10,4 @@ include_directories(../include catch2)
 
 add_subdirectory ("ring_buffer")
 add_subdirectory ("temp_buffer")
+add_subdirectory ("scope_guard")
