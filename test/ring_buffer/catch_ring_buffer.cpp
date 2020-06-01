@@ -143,7 +143,7 @@ TEST_CASE("utl.ring_buffer. Capacity == 10")
 
 TEST_CASE("utl.ring_buffer. Iteration")
 {
-    constexpr int values[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int const values[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     RingBuffer<Element, 10> rb;
 
     REQUIRE(rb.capacity() == std::size(values));
