@@ -25,6 +25,7 @@
 
 #include <iterator>
 #include <utility>
+#include <memory>
 
 RB_BEGIN_NAMESPACE
 

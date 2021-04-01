@@ -24,6 +24,7 @@
 // clang-format on
 
 #include <memory_resource>
+#include <bit>
 
 UB_BEGIN_NAMESPACE
 
@@ -97,14 +98,7 @@ class UniqueBuffer
     template<typename T, typename = std::enable_if_t<std::is_trivial_v<T> && std::is_standard_layout_v<T>>>
     [[nodiscard]] T* as() const noexcept
     {
-        // Some C++20 STLs for popular compilers have not yet std::bit_cast implemented.
-        // To work around this issue type punning is used for now.
-        union
-        {
-            decltype(buffer_) from;
-            T* to;
-        } cast{.from = buffer_};
-        return cast.to;
+        return std::bit_cast<T*>(buffer_);
     }
 
     [[nodiscard]] std::size_t size() const noexcept

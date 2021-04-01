@@ -25,6 +25,7 @@
 
 #include <memory_resource>
 #include <algorithm>
+#include <bit>
 
 TB_BEGIN_NAMESPACE
 
@@ -96,15 +97,7 @@ class TempBuffer
     template<typename T, typename = std::enable_if_t<std::is_trivial_v<T> && std::is_standard_layout_v<T>>>
     [[nodiscard]] T* as() const noexcept
     {
-        // Some C++20 STLs for popular compilers have not yet std::bit_cast implemented.
-        // To work around this issue type punning is used for now.
-        union
-        {
-            decltype(p_) from;
-            T* to;
-        };
-        from = p_;
-        return to;
+        return std::bit_cast<T*>(p_);
     }
 
     [[nodiscard]] std::size_t size() const noexcept
