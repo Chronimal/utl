@@ -270,8 +270,7 @@ class RingBuffer
     template<typename... Args>
     decltype(auto) emplace(Args&&... args)
     {
-        // NOTE: Replace with std::construct_at() once it it available for all supported compilers
-        auto element = new (storageAt(write_)) T(std::forward<Args>(args)...);
+        auto element = std::construct_at(static_cast<T*>(storageAt(write_)), std::forward<Args>(args)...);
         if (full())
         {
             destruct(increment(read_));
